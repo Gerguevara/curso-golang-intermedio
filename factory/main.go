@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 // SMS Email
-
+// Interface solo contienen los metodos
 type INotificationFactory interface {
 	SendNotification()
 	GetSender() ISender
@@ -14,13 +14,16 @@ type ISender interface {
 	GetSenderChannel() string
 }
 
+// struct solo para darle metodos
 type SMSNotification struct {
 }
 
+// este metodo pertenece al struct SMSNotification
 func (SMSNotification) SendNotification() {
 	fmt.Println("Sending Notification via SMS")
 }
 
+// este metodo pertenece al struct SMSNotification
 func (SMSNotification) GetSender() ISender {
 	return SMSNotificationSender{}
 }
